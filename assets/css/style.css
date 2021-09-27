@@ -32,3 +32,11 @@ h1 {
 .five-space {
     margin-right: 6%;
 }
+
+ul {
+    padding: 0;
+}
+
+.city-space {
+    margin-bottom:15px;
+}

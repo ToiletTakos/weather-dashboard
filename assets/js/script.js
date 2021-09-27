@@ -7,10 +7,55 @@ function timeConvert(time) {
     return dateFormat;
 }
 
-function getWeather() {
+var cityName=[];
 
+function createCityName() {
+    var searchCity = document.querySelector("#search-city").value;
+
+    cityName.push(searchCity);
+
+    var ulist = document.querySelector("#ulist");
+    var savedCities = searchCity;
+    var li = document.createElement("li");
+
+    li.className = 'city-space btn btn-secondary';
+    li.appendChild(document.createTextNode(savedCities));
+    ulist.appendChild(li);
+
+    localStorage.setItem('cityName', JSON.stringify(cityName));
+}
+
+function returnLocalStorage() {
+    
+    var saved = JSON.parse(localStorage.getItem("cityName"));
+
+    if (!saved){
+        return false;
+    }
+
+    saved.push(cityName);
+    
+    for(i = 0; i < saved.length - 1; i++){
+        var cities = saved[i];
+        var ulist = document.querySelector("#ulist");
+        var li = document.createElement("li");
+
+        li.className = 'city-space btn btn-secondary';
+        li.appendChild(document.createTextNode(cities));
+        ulist.appendChild(li);
+        console.log(cities)
+        cityName.push(cities);
+    }
+}
+
+function getWeather() {
     var searchCity = document.querySelector("#search-city").value;
     console.log(searchCity);
+
+    if (!searchCity){
+        alert("you need to enter something")
+        return false;
+    }
 
     var currentHeader = document.querySelector('#current-header');
     currentHeader.innerHTML = '';
@@ -33,7 +78,16 @@ function getWeather() {
 
     fetch ("http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&units=metric&appid=2d15ff373909278e33246059d67a42b6")
     .then(function(response) {
-        return response.json();
+        if (response.ok) {
+            console.log(response);
+            return response.json();
+            
+        }
+        else {
+            alert('Error: City Not Found');
+            return;
+        }
+        
     })
     .then(function(response) {
        
@@ -201,10 +255,18 @@ function getWeather() {
         var dayFiveHumid = response.daily[4].humidity;
         var dayFiveHumidEl = document.querySelector("#dayfive-humid")
         dayFiveHumidEl.innerHTML = '<span>' + dayFiveHumid + ' %' + '<span>'
-
-        
     })
+    createCityName();
+
+    document.querySelector("#search-city").value = "";
 }
 
+//when clicked clears localstorage
+function clearStorage(){
+    localStorage.clear();
+    cityName = [];
+    location.reload();    
+}
 
+returnLocalStorage();
 

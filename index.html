@@ -19,9 +19,13 @@
                 <input id="search-city" class="form-control form-control-sm" type="text" placeholder="Enter City" aria-label=".form-control-sm example">
                 <div class="d-grid gap-2 border-search">
                     <button class="btn-space btn btn-primary" type="button" onclick="getWeather()">Search</button>
+                    <button class="city-space btn btn-primary" type="button" onclick="clearStorage()">Clear Seach History</button>
                 </div>
 
-                <div class='saved-spacing d-grid gap-2'>
+                <div >
+                    <ul id="ulist" class='saved-spacing d-grid'>
+                        <!--<li class="city-space btn btn-secondary" type="button" disabled>City Name</li>-->
+                    </ul>
                     
                 </div>
             </div>
@@ -86,7 +90,7 @@
                     <!--Day five-->
                     <div class="col card bg-secondary text-white">
                         <div class="card-body">
-                            <h5 id="dayfive-date" class="card-title">3/31/2021</h5>
+                            <h5 id="dayfive-date" class="card-title"></h5>
                             <p id="dayfive-img" class="card-text"></p>
                             <p class="card-text">Temp: <span id ="dayfive-temp"></span></p>
                             <p class="card-text">Wind: <span id ="dayfive-wind"></span></p>
