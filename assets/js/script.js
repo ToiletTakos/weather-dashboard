@@ -75,8 +75,8 @@ function getWeather() {
     var dayFiveImgDisplay = document.querySelector("#dayfive-img");
     dayFiveImgDisplay.innerHTML = '';
     
-
-    fetch ("http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&units=metric&appid=2d15ff373909278e33246059d67a42b6")
+    var userSearchCity = "http://api.openweathermap.org/data/2.5/weather?q=" + searchCity + "&units=metric&appid=2d15ff373909278e33246059d67a42b6"
+    fetch (userSearchCity)
     .then(function(response) {
         if (response.ok) {
             console.log(response);

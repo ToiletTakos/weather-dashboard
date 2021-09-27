@@ -7,7 +7,7 @@ Create a weather app that uses a weather API to pull data for a user entered cit
 * Created the js script to make the API fetch calls
 * flushed out the script to make everything match the mock up from the API call
 * created the localStorage elements to store the user entered data and then return the data when page was re loaded
-
+* added a clear search history button and made it function
 
 ## links
 GitHub: https://github.com/ToiletTakos/weather-dashboard
