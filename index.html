@@ -16,62 +16,81 @@
         <div class="row">
             <div id="search-section" class="search col-2">
                 <h2>Search for a City:</h2>
-                <input class="form-control form-control-sm" type="text" placeholder="Enter City" aria-label=".form-control-sm example">
+                <input id="search-city" class="form-control form-control-sm" type="text" placeholder="Enter City" aria-label=".form-control-sm example">
                 <div class="d-grid gap-2 border-search">
-                    <button class="btn-space btn btn-primary" type="button">Search</button>
+                    <button class="btn-space btn btn-primary" type="button" onclick="getWeather()">Search</button>
                 </div>
 
                 <div class='saved-spacing d-grid gap-2'>
-                    <button class="btn btn-primary" type="button">Search</button>
-                    <button class="btn btn-primary" type="button">Search</button>
+                    
                 </div>
             </div>
 
             <div id="weather-display" class="col space-between">
                 <div class="row border border-dark right-side">
-                    <h2>city(date)</h2>
-                    <p>Temp:</p>
-                    <p>Wind:</p>
-                    <p>Humidity:</p>
-                    <P>UV Index:</P>
+                    <h2 id="current-header">City</h2>
+                    <p>Temp: <span id="current-temp"></span></p>
+                    <p>Wind: <span id="current-wind"></span></p>
+                    <p>Humidity: <span id="current-humid"></span></p>
+                    <P>UV Index: <span id="current-uv"></span></P>
                 </div>
+
                 <h3 class="buffer">5-Day Forcast:</h3>
+
                 <div class="row right-side">
+
+                    <!--Day one-->
                     <div class="col card bg-secondary text-white five-space">
                         <div class="card-body">
-                            <h5 class="card-title">3/31/2021</h5>
-                            <p class="card-text">small image</p>
-                            <p class="card-text">Temp:73 F</p>
-                            <p class="card-text">Wind: 9.53 MPH</p>
-                            <p class="card-text">Humidity: 66%</p>
+                            <h5 id="dayone-date" class="card-title"></h5>
+                            <p id="dayone-img" class="card-text"></p>
+                            <p class="card-text">Temp: <span id ="dayone-temp"></span></p>
+                            <p class="card-text">Wind: <span id ="dayone-wind"></span></p>
+                            <p class="card-text">Humidity: <span id ="dayone-humid"></span></p>
                         </div>
                     </div>
+
+                    <!--Day two-->
                     <div class="col card bg-secondary text-white five-space">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 id="daytwo-date" class="card-title"></h5>
+                            <p id="daytwo-img" class="card-text"></p>
+                            <p class="card-text">Temp: <span id ="daytwo-temp"></span></p>
+                            <p class="card-text">Wind: <span id ="daytwo-wind"></span></p>
+                            <p class="card-text">Humidity: <span id ="daytwo-humid"></span></p>
                         </div>
                     </div>
+
+                    <!--Day three-->
                     <div class="col card bg-secondary text-white five-space">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 id="daythree-date" class="card-title"></h5>
+                            <p id="daythree-img" class="card-text"></p>
+                            <p class="card-text">Temp: <span id ="daythree-temp"></span></p>
+                            <p class="card-text">Wind: <span id ="daythree-wind"></span></p>
+                            <p class="card-text">Humidity: <span id ="daythree-humid"></span></p>
                         </div>
                     </div>
+
+                    <!--Day four-->
                     <div class="col card bg-secondary text-white five-space">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 id="dayfour-date" class="card-title"></h5>
+                            <p id="dayfour-img" class="card-text"></p>
+                            <p class="card-text">Temp: <span id ="dayfour-temp"></span></p>
+                            <p class="card-text">Wind: <span id ="dayfour-wind"></span></p>
+                            <p class="card-text">Humidity: <span id ="dayfour-humid"></span></p>
                         </div>
                     </div>
+
+                    <!--Day five-->
                     <div class="col card bg-secondary text-white">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 id="dayfive-date" class="card-title">3/31/2021</h5>
+                            <p id="dayfive-img" class="card-text"></p>
+                            <p class="card-text">Temp: <span id ="dayfive-temp"></span></p>
+                            <p class="card-text">Wind: <span id ="dayfive-wind"></span></p>
+                            <p class="card-text">Humidity: <span id ="dayfive-humid"></span></p>
                         </div>
                     </div>
                 </div>
@@ -79,6 +98,6 @@
             </div>
         </div>
     </main>
-    
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
